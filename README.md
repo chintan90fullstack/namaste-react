@@ -18,3 +18,50 @@
 - Https Support
 - Tree Shaking - remove unused code
 - Different dev and prod bundles
+
+
+
+# Namaste Food
+
+/*
+* Header
+*  - Logo
+*  - Nav Items
+*
+* Body
+*  - Search
+*  - Restaurant Container
+*    - RestaurantCard
+*       - image
+*       - Name
+*       - star rating
+*       - cusisine
+*       - delivery time
+* Footer
+*  - Copyright
+*  - Links
+*  - Address
+*  - Contact
+ */
+
+
+
+
+ Two types of Export/Import
+
+ - Default Export/Import
+
+ export default ComponentName;
+ import componentName from "path";
+
+ - Named Export/Import
+
+ export const ComponentName;
+ import {ComponentName} from  "path";
+
+ -- we can use named export and default export in a single file the only difference is of importing them either by named import or default import
+
+
+ (Normal JS utility functions)
+-- useState() => givees superpowerful react 
+--  useEffect()
