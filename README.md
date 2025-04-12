@@ -63,5 +63,7 @@
 
 
  (Normal JS utility functions)
--- useState() => givees superpowerful react 
---  useEffect()
+-- useState() => givees superpowerful react , used to show some data on the initial state of the component
+--  useEffect() => used to fetch data once the initial state is loaded of the react app component.
+
+-- whenever state variable updates, it rerenders the component.

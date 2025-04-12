@@ -23,5 +23,6 @@
   },
   "browserslist": [
     "last 2 versions"
-  ]
+  ],
+  "proxy": "https://www.swiggy.com/"
 }
