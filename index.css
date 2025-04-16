@@ -76,3 +76,28 @@
 {
     
 }
+.slidercontainer
+{
+    
+}
+.slidercontainer h4
+{
+
+}
+.slidercontainer .sliderwpr{
+    display: flex;
+    flex-wrap: wrap;
+}
+.sliderwpr .snglsldr
+{
+
+}
+.snglsldr img
+{
+    width: 150px;
+    height: auto;
+}
+.snglsldr .snglsldrnm
+{
+
+}
