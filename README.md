@@ -67,3 +67,18 @@
 --  useEffect() => used to fetch data once the initial state is loaded of the react app component.
 
 -- whenever state variable updates, it rerenders the component.
+
+
+
+// if no dependency array => useEffect is called on every render
+    // if dependency array is empty = [] => useEffect is called on initial render(Just Once).
+    // if dependency array is have some values, then useEffect will be called everytime when dependency values get changes.
+    useEffect( () => {
+        console.log("useEffect is called");
+    }, [btnNameReact])
+
+-- never use useState under any if statement, for loop or under any condition.
+
+-- Server Side Rounting : how the traditional routing works, when we call a page it reloads the whole page.  
+
+-- Client Side Routing: this is how single page application (SPA) works, it loads all components once the page loaded and then when we move from one page to another page via link component, then it only loads that component instead of making request on the  server.

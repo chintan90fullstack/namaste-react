@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import BodySlider from "./BodySlider";
+import { Link } from "react-router";
 
 
 // either receive variables in a single object and show them after picking them from object like props.resName OR simply take all variables as parapeters.
@@ -14,6 +15,7 @@ import BodySlider from "./BodySlider";
 // State Variable - Super Powerful variable
 
 const Body = () => {
+    console.log("Body Render");
 
 // creating state variable
 const [apiData, setApiData] = useState([]);
@@ -73,7 +75,7 @@ const fetchData = async () => {
             </div>
             <div className="restro_container">
                 {
-                    filteredRestaurant.map( (restaurant, index) => <RestaurantCard key={restaurant.info.id} resData={restaurant}></RestaurantCard>)
+                    filteredRestaurant.map( (restaurant, index) => <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}><RestaurantCard resData={restaurant}></RestaurantCard></Link>)
                 }
                 
             </div>

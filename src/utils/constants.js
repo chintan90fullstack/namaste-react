@@ -4,3 +4,5 @@ export const LOGO_URL = "https://www.logodesign.net/logo/smoking-burger-with-let
 
 
 // Named export when we write "export" infront of Constant name
+
+export const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.736738&lng=75.829188&restaurantId=";
