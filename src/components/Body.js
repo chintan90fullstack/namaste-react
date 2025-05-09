@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import BodySlider from "./BodySlider";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 // either receive variables in a single object and show them after picking them from object like props.resName OR simply take all variables as parapeters.
@@ -34,6 +35,11 @@ const fetchData = async () => {
     setFilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setApiData(json?.data);
 };
+
+const onlineStatus = useOnlineStatus();
+if(onlineStatus === false) {
+     return <h1>Your internet connection is unstable.Please Check your connection.</h1>;
+}
 
 // Conditional Rendering
 // if(listOfRestaurants.length === 0)
