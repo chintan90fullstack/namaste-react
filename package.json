@@ -15,7 +15,11 @@
   "author": "Chintan Trivedi",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.14.4"
+    "@tailwindcss/postcss": "^4.1.7",
+    "auto-prefixer": "^0.4.2",
+    "parcel": "^2.14.4",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17"
   },
   "dependencies": {
     "react": "^19.1.0",

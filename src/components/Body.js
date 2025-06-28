@@ -29,7 +29,7 @@ useEffect(() => {
 }, []);
 
 const fetchData = async () => {
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.91360&lng=75.78580&page_type=DESKTOP_WEB_LISTING");
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7195687&lng=75.8577258&page_type=DESKTOP_WEB_LISTING");
     const json = await data.json();
     setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setFilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -41,6 +41,7 @@ if(onlineStatus === false) {
      return <h1>Your internet connection is unstable.Please Check your connection.</h1>;
 }
 
+// console.log("body testig", listOfRestaurants)
 // Conditional Rendering
 // if(listOfRestaurants.length === 0)
 // {
@@ -54,9 +55,9 @@ if(onlineStatus === false) {
 
             <BodySlider sliderData={apiData}></BodySlider>
 
-            <div className="filter">
-                <div className="search">
-                    <input type="text" className="search-box" value={searchText} onChange={ (e) => { 
+            <div className="filter flex">
+                <div className="search m-4 p-4">
+                    <input type="text" className="border-solid rounded-lg border border-gray-300 bg-white py-2 px-4 pr-10" value={searchText} onChange={ (e) => { 
                     setSearchText(e.target.value);
                      }} />
                     {/* <button onClick={() => { 
@@ -64,22 +65,24 @@ if(onlineStatus === false) {
                         setFilteredRestaurant(filteredRestaurant)
                         }}
                         >Search</button> */}
-                        <button onClick={() =>
+                        <button className="px-4 py-2 bg-green-100 m-4 rounded-lg" onClick={() =>
                             {
                                 const filteredRestaurant = listOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                                 setFilteredRestaurant(filteredRestaurant);
                             }
                         }>Search</button>
                 </div>
-                <button className="filter-btn" onClick={() =>
-                    {
-                        const filteredList = listOfRestaurants.filter( (res) => res.info.avgRating > 4.4 );
-                        setListOfRestaurants(filteredList);
-                    }
-                }>Top Rated Restaurants
-                </button>
+                <div className="search m-4 p-4 flex items-center">
+                    <button className="px-4 py-2 bg-gray-100 rounded-lg" onClick={() =>
+                        {
+                            const filteredList = listOfRestaurants.filter( (res) => res.info.avgRating > 4.4 );
+                            setListOfRestaurants(filteredList);
+                        }
+                    }>Top Rated Restaurants
+                    </button>
+                </div>
             </div>
-            <div className="restro_container">
+            <div className="flex flex-wrap">
                 {
                     filteredRestaurant.map( (restaurant, index) => <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}><RestaurantCard resData={restaurant}></RestaurantCard></Link>)
                 }

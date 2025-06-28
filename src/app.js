@@ -2,11 +2,11 @@ import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import {Header} from "./components/Header";
 import Body from "./components/Body";
-import About from "./components/About";
+// import About from "./components/About";
 // import Grocery from "./components/Grocery";
-import Contact from "./components/Contact";
-import RestaurantMenu from "./components/RestaurantMenu";
-import Error from "./components/Error";
+// import Contact from "./components/Contact";
+// import RestaurantMenu from "./components/RestaurantMenu";
+// import Error from "./components/Error";
 // import { BrowserRouter, Routes, Route } from "react-router";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 
@@ -16,7 +16,11 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 // Lazy Loading
 // On demand loading
 
+const About = lazy( () => import("./components/About") );
 const Grocery = lazy( () => import("./components/Grocery") );
+const Contact = lazy( () => import("./components/Contact") );
+const RestaurantMenu = lazy( () => import("./components/RestaurantMenu") );
+const Error = lazy( () => import("./components/Error") );
 
 
 const Footer = () => {
@@ -30,7 +34,8 @@ const Footer = () => {
 const AppLayout = () => {
     return (
         <div className="app">
-            <Header></Header>
+            <Header>
+            </Header>
             
             <Outlet></Outlet>
             
@@ -50,31 +55,23 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/about",
-                element: <About />
+                element: <Suspense fallback={<h1>About ka placeholder</h1>} > <About /> </Suspense>,
             },
             {
                 path: "/grocery",
-                element: <Suspense fallback={<h1>Grocery ka placeholder</h1>} > <Grocery /> </Suspense>
+                element: <Suspense fallback={<h1>Grocery ka placeholder</h1>} > <Grocery /> </Suspense>,
             },
             {
                 path: "/contact",
-                element: <Contact />
+                element: <Suspense fallback={<h1>Contact ka placeholder</h1>} > <Contact /> </Suspense>,
             },
             {
                 path: "/restaurant/:resId",
-                element: <RestaurantMenu/>
+                element: <Suspense fallback={<h1>Restaurant Menu ka placeholder</h1>} > <RestaurantMenu/> </Suspense>,
             },
         ],
-        errorElement: <Error/>,
+        errorElement: <Suspense fallback={<h1>Error ka placeholder</h1>} > <Error/> </Suspense>,
     },
-    // {
-    //     path: "/about",
-    //     element: <About />
-    // },
-    // {
-    //     path: "/contact",
-    //     element: <Contact />
-    // }
 ]);
 
 
